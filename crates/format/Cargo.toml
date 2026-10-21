@@ -1,0 +1,21 @@
+[package]
+name = "blend-format"
+description = "Blend .blendproj files: schema versions + migrations, atomic saves, auto-save naming and rotation"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+blend-project = { workspace = true }
+blend-media = { workspace = true }
+log = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+blend-time = { workspace = true }

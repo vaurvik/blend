@@ -1,0 +1,8 @@
+asset:        background.svg
+title:        macOS DMG window background with Blend logo
+author:       @XusBadia
+source:       original work
+license:      MIT OR Apache-2.0
+license-file: LICENSE-MIT, LICENSE-APACHE
+added:        2026-10-08 by @XusBadia
+notes:        Original DMG artwork now references the user-provided Blend logo PNG (assets/brand/blend-icon-1024.png). Text is outlined Inter / JetBrains Mono glyph paths. Rendered by packaging/macos/dmg/generate.py.

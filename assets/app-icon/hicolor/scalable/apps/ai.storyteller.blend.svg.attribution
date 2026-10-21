@@ -1,0 +1,7 @@
+asset:        ai.storyteller.blend.svg
+title:        Blend logo, Linux scalable icon
+author:       Blend project owner (user-provided)
+source:       assets/brand/blend-icon-1024.png and supplied size variants
+license:      not specified in source
+added:        2026-10-20
+notes:        SVG wrapper points to the canonical supplied Blend logo PNG.

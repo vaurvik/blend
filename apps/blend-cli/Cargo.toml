@@ -1,0 +1,38 @@
+[package]
+name = "blend-cli"
+description = "Blend headless CLI and MCP server"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lints]
+workspace = true
+
+[[bin]]
+name = "blend-cli"
+path = "src/main.rs"
+
+[features]
+default = []
+# Speech-to-text (Text panel ▸ Transcribe) with Whisper on the CPU, and model downloads.
+whisper = ["blend-engine/whisper", "blend-engine/speech-download"]
+
+[dependencies]
+blend-engine = { workspace = true }
+blend-export = { workspace = true }
+blend-project = { workspace = true }
+blend-render = { workspace = true }
+blend-time = { workspace = true }
+blend-gpu = { workspace = true }
+blend-media = { workspace = true }
+blend-codecs = { workspace = true }
+blend-platform = { workspace = true }
+blend-mxf = { workspace = true }
+blend-mpegts = { workspace = true }
+blend-ogg = { workspace = true }
+blend-automation = { workspace = true }
+serde_json = { workspace = true }
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+
+[dev-dependencies]
+blend-testkit = { workspace = true }

@@ -1,0 +1,11 @@
+kind = "app"
+categories = ["AudioVideo", "Video", "AudioVideoEditing"]
+icon = "assets/app-icon/hicolor/256x256/apps/ai.storyteller.blend.png"
+
+[linux.x86_64]
+asset = "blend-{version}-linux-x86_64.tar.gz"
+exec = "blend-{version}-linux-x86_64/bin/blend"
+
+[linux.aarch64]
+asset = "blend-{version}-linux-aarch64.tar.gz"
+exec = "blend-{version}-linux-aarch64/bin/blend"

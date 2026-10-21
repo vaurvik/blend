@@ -1,0 +1,30 @@
+[package]
+name = "blend-gpu"
+description = "wgpu compositor: YUV/RGB layer sampling, linear-light premultiplied compositing in WGSL"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+blend-color = { workspace = true }
+blend-frame = { workspace = true }
+blend-geom = { workspace = true }
+blend-project = { workspace = true }
+blend-render = { workspace = true }
+blend-time = { workspace = true }
+wgpu = { version = "30", default-features = false, features = ["wgsl"] }
+log = { workspace = true }
+pollster = "0.4"
+rayon = { workspace = true }
+
+[dev-dependencies]
+pollster = "0.4"
+blend-export = { workspace = true }
+image = { version = "0.25", default-features = false, features = ["png"] }
+wgpu = { version = "30", features = ["wgsl", "metal", "vulkan", "dx12", "gles"] }
+blend-media = { workspace = true }
+blend-time = { workspace = true }

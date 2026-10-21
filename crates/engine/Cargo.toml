@@ -1,0 +1,52 @@
+[package]
+name = "blend-engine"
+description = "Blend engine façade: session, command registry, history, media pool"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[lints]
+workspace = true
+
+[features]
+default = []
+# Speech-to-text with Whisper (candle, CPU). Off by default and in wasm builds.
+whisper = ["blend-speech/whisper"]
+# Speech-model downloads over HTTPS.
+speech-download = ["blend-speech/download"]
+# Natural voices for Text to Speech: Kokoro-82M on candle (CPU) and their download.
+neural-voices = ["blend-tts/kokoro", "speech-download"]
+
+[dependencies]
+blend-time = { workspace = true }
+blend-geom = { workspace = true }
+blend-color = { workspace = true }
+blend-frame = { workspace = true }
+blend-media = { workspace = true }
+blend-codecs = { workspace = true }
+blend-project = { workspace = true }
+blend-edit = { workspace = true }
+blend-render = { workspace = true }
+blend-scopes = { workspace = true }
+blend-text = { workspace = true }
+blend-audio-dsp = { workspace = true }
+blend-export = { workspace = true }
+blend-mxf = { workspace = true }
+blend-format = { workspace = true }
+blend-interchange = { workspace = true }
+blend-captions = { workspace = true }
+blend-speech = { workspace = true }
+blend-tts = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+log = { workspace = true }
+craft-docpath = { workspace = true }
+web-time = "1"
+
+[dev-dependencies]
+blend-testkit = { workspace = true }
+blend-dng = { workspace = true, features = ["writer"] }
+blend-isobmff = { workspace = true }
+image = { version = "0.25", default-features = false, features = ["png", "gif"] }

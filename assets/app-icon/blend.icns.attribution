@@ -1,0 +1,7 @@
+asset:        blend.icns
+title:        Blend logo, macOS icon family
+author:       Blend project owner (user-provided)
+source:       assets/brand/blend-icon-1024.png and supplied size variants
+license:      not specified in source
+added:        2026-10-20
+notes:        Generated as a macOS ICNS container from Blend logo PNGs.

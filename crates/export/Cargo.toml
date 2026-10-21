@@ -1,0 +1,39 @@
+[package]
+name = "blend-export"
+description = "Export pipeline: parallel render → encode → mux, presets, progress/cancel"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+blend-time = { workspace = true }
+blend-frame = { workspace = true }
+blend-color = { workspace = true }
+blend-media = { workspace = true }
+blend-project = { workspace = true }
+blend-render = { workspace = true }
+blend-audio-dsp = { workspace = true }
+blend-geom = { workspace = true }
+blend-text = { workspace = true }
+blend-isobmff = { workspace = true }
+blend-prores = { workspace = true }
+blend-dnx = { workspace = true }
+blend-apv = { workspace = true }
+blend-mxf = { workspace = true }
+blend-aac = { workspace = true }
+blend-flac = { workspace = true }
+blend-h264enc = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+rayon = { workspace = true }
+web-time = "1"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "gif", "tiff", "bmp"] }
+
+[dev-dependencies]
+blend-testkit = { workspace = true }
+blend-codecs = { workspace = true }

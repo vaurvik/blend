@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Blend MSI (WiX Toolset v5: `dotnet tool install -g wix`). Built by package.ps1:
+
+    wix build blend.wxs -arch x64 -d Version=1.2.3 -d BinDir=... -d IconPath=... -o out.msi
+
+  Per-machine install into Program Files and a Start Menu shortcut. No file associations.
+-->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package
+      Name="Blend"
+      Manufacturer="Learning Machines LLC"
+      Version="$(var.Version)"
+      UpgradeCode="31E6FB14-9DBC-41DD-B24B-26B71FB31B62"
+      Scope="perMachine"
+      Compressed="yes"
+      Language="1033">
+    <SummaryInformation Description="Blend video editor" Manufacturer="Learning Machines LLC" />
+    <!-- Same-version upgrades let successive pre-releases of one X.Y.Z replace each other
+         (MSI versions are numeric, so 1.2.3-rc.1 and 1.2.3-rc.2 are both 1.2.3). -->
+    <MajorUpgrade AllowSameVersionUpgrades="yes"
+        DowngradeErrorMessage="A newer version of Blend is already installed." />
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+
+    <Icon Id="BlendIcon.ico" SourceFile="$(var.IconPath)" />
+    <Property Id="ARPPRODUCTICON" Value="BlendIcon.ico" />
+    <Property Id="ARPURLINFOABOUT" Value="https://github.com/vaurvik/blend" />
+    <Property Id="ARPURLUPDATEINFO" Value="https://github.com/vaurvik/blend/releases" />
+    <Property Id="ARPHELPLINK" Value="https://github.com/vaurvik/blend/issues" />
+
+    <StandardDirectory Id="ProgramFiles6432Folder">
+      <Directory Id="INSTALLFOLDER" Name="Blend" />
+    </StandardDirectory>
+    <StandardDirectory Id="ProgramMenuFolder" />
+
+    <Feature Id="Main" Title="Blend" Level="1">
+      <ComponentGroupRef Id="BlendFiles" />
+    </Feature>
+  </Package>
+
+  <Fragment>
+    <ComponentGroup Id="BlendFiles" Directory="INSTALLFOLDER">
+      <Component Id="BlendApp" Guid="15933017-925B-4963-8992-52000EB26AAA">
+        <File Id="BlendExe" Source="$(var.BinDir)\blend.exe" KeyPath="yes">
+          <Shortcut Id="StartMenuShortcut" Directory="ProgramMenuFolder" Name="Blend"
+              Description="Blend video editor" WorkingDirectory="INSTALLFOLDER" Advertise="yes"
+              Icon="BlendIcon.ico" IconIndex="0" />
+        </File>
+
+        <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\blend.exe" Value="[#BlendExe]" Type="string" />
+      </Component>
+
+      <Component Id="BlendCli">
+        <File Id="BlendCliExe" Source="$(var.BinDir)\blend-cli.exe" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

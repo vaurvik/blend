@@ -1,0 +1,60 @@
+[package]
+name = "blend-ui-egui"
+description = "The Blend egui frontend (swappable): panels, docking, timeline, monitors, control channel"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+craft-ui = { workspace = true }
+blend-time = { workspace = true }
+blend-geom = { workspace = true }
+blend-color = { workspace = true }
+blend-frame = { workspace = true }
+blend-media = { workspace = true }
+blend-project = { workspace = true }
+blend-tts = { workspace = true }
+blend-edit = { workspace = true }
+blend-render = { workspace = true }
+blend-text = { workspace = true }
+blend-audio-dsp = { workspace = true }
+blend-engine = { workspace = true }
+blend-export = { workspace = true }
+blend-gpu = { workspace = true }
+blend-scopes = { workspace = true }
+egui = { workspace = true }
+eframe = { workspace = true, features = ["default_fonts", "wgpu", "accesskit"] }
+serde = { workspace = true }
+serde_json = { workspace = true }
+log = { workspace = true }
+rayon = { workspace = true }
+web-time = "1"
+# Unicode Bidirectional Algorithm for Arabic and Hebrew captions in reading order (MIT OR Apache-2.0).
+unicode-bidi = "0.3.18"
+# Blend wordmark (PNG) for the About dialog and Home screen.
+image = { version = "0.25", default-features = false, features = ["png"] }
+
+# Thread/process CPU clocks for frame-job profiling (safe wrappers; see frames.rs).
+[target.'cfg(unix)'.dependencies]
+rustix = { version = "1", default-features = false, features = ["std", "time"] }
+# the same clocks on Windows (GetThreadTimes / GetProcessTimes behind a safe API; MIT OR Apache-2.0)
+[target.'cfg(windows)'.dependencies]
+cpu-time = "1"
+
+[dev-dependencies]
+pollster = "0.4"
+blend-codecs = { workspace = true }
+# the bench registers OS hardware decoders as the desktop app does (dev-dependency only: ui-egui
+# itself stays OS-independent and web-portable)
+blend-platform = { workspace = true }
+blend-interchange = { workspace = true }
+egui_kittest = { workspace = true, features = ["eframe", "wgpu"] }
+
+# build.rs bakes contributors/contributors.json into the binary (About ▸ Contributors).
+[build-dependencies]
+serde_json = { workspace = true }
+toml = "1"

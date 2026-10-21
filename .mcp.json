@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "blend": {
+      "command": "target/release/blend-cli",
+      "args": ["mcp", "--bridge", "127.0.0.1:9876"]
+    },
+    "blend-headless": {
+      "command": "target/release/blend-cli",
+      "args": ["mcp", "--demo"]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+[package]
+name = "blend-codecs"
+description = "Container + codec hub: MP4/MOV, Matroska, MXF, Ogg and MPEG TS/PS sources, image sequences, GOP-aware seeking, decoder registry, audio decoding"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+blend-time = { workspace = true }
+blend-color = { workspace = true }
+blend-frame = { workspace = true }
+blend-media = { workspace = true }
+blend-avi = { workspace = true }
+blend-isobmff = { workspace = true }
+blend-matroska = { workspace = true }
+blend-mxf = { workspace = true }
+blend-mpegts = { workspace = true }
+blend-mpeg2v = { workspace = true }
+blend-ac3 = { workspace = true }
+blend-mpa = { workspace = true }
+blend-ogg = { workspace = true }
+blend-bitstream = { workspace = true }
+blend-h264 = { workspace = true }
+blend-hevc = { workspace = true }
+blend-vp8 = { workspace = true }
+blend-vp9 = { workspace = true }
+blend-prores = { workspace = true }
+blend-dnx = { workspace = true }
+blend-av1 = { workspace = true }
+blend-apv = { workspace = true }
+blend-aac = { workspace = true }
+blend-opus = { workspace = true }
+rayon = { workspace = true }
+thiserror = { workspace = true }
+log = { workspace = true }
+# Decode timing counters (`gop_stats`); std's Instant panics on wasm32.
+web-time = "1"
+image = { version = "0.25", default-features = false, features = ["jpeg"] }
+# Bootstrap audio decoding (MPL-2.0, used unmodified); replaced by own decoders over time.
+symphonia = { version = "0.5.5", default-features = false, features = ["aac", "mp1", "mp2", "mp3", "flac", "alac", "pcm", "wav", "aiff", "ogg", "vorbis", "isomp4"] }
+
+[dev-dependencies]
+blend-testkit = { workspace = true }
+serde_json = { workspace = true }

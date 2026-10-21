@@ -1,0 +1,21 @@
+[package]
+name = "blend-captions"
+description = "Blend captions: SRT, WebVTT, SCC, MCC, EBU STL and TTML/IMSC1/DFXP import/export, caption layout and burn-in rasterisation"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+blend-time = { workspace = true }
+blend-color = { workspace = true }
+blend-project = { workspace = true }
+blend-text = { workspace = true }
+thiserror = { workspace = true }
+roxmltree = { workspace = true }
+
+[dev-dependencies]
+proptest = { workspace = true }

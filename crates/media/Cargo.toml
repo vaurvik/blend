@@ -1,0 +1,26 @@
+[package]
+name = "blend-media"
+description = "Media sources: probing, decoding traits, frame cache, generators, stills"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+blend-time = { workspace = true }
+blend-color = { workspace = true }
+blend-frame = { workspace = true }
+blend-dng = { workspace = true }
+rayon = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "gif", "webp", "tiff", "bmp"] }
+
+[dev-dependencies]
+blend-testkit = { workspace = true }
+blend-dng = { workspace = true, features = ["writer"] }
+# APNG fixtures for the animated-image tests (the image crate does not encode APNG)
+png = "0.18"
